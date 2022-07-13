@@ -1,1 +1,54 @@
-!
+<html>
+    <head>
+      <title>like dislike</title>
+      <style>
+        #box{
+            display:flex;
+            flex-direction:column;
+            margin-left:20%;
+            margin: right 20%;
+            margin-top:5%;
+            padding:10px;
+        }
+      </style>
+    </head>
+    <body>
+        <div id="box">
+            <div>
+        <img src="https://images.pexels.com/photos/7516509/pexels-photo-7516509.jpeg?auto=compress&cs=tinysrgb&w=600&lazy=load"alt="">
+    </div>
+    <div>
+        <h1>puppy dog</h1>
+        <h1 id="likecounter">0</h1>
+        <button onclick="like()">like</button>
+        <button onclick="dislike()">dislike</button>
+    </div>
+    </div>
+
+    </body>
+</html>
+<script>
+    // var count=0;
+   
+         var count=localStorage.getItem("count")||0;
+         var x=document.getElementById("likecounter");
+         x.textContent=count;
+         function like(){
+            count++
+            localStorage.setItem("count", count);
+            x.textContent=count;
+         }
+         function dislike(){
+            
+            if(count<=0){
+                count=0;
+            }
+            else{
+                count--
+            }
+            localStorage.setItem("count", count)
+            x.textContent=count;
+         }
+
+
+</script>
